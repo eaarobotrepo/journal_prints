@@ -1,4 +1,5 @@
 import pigpio
+import sys
 from pupper.Config import ServoParams, PWMParams
 
 
@@ -77,7 +78,7 @@ def initialize_pwm(pi, pwm_params):
             )
             pi.set_PWM_range(pwm_params.pins[axis_index, leg_index], pwm_params.range)
 
-
+#denne skal have en print tilføjet 
 def send_servo_commands(pi, pwm_params, servo_params, joint_angles):
     for leg_index in range(4):
         for axis_index in range(3):

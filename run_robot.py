@@ -1,5 +1,6 @@
 import numpy as np
 import time
+import sys
 from src.IMU import IMU
 from src.Controller import Controller
 from src.JoystickInterface import JoystickInterface
@@ -59,6 +60,8 @@ def main(use_imu=False):
 
             # Parse the udp joystick commands and then update the robot controller's parameters
             command = joystick_interface.get_command(state)
+            print(command)
+            sys.stdout.flush()
             if command.activate_event == 1:
                 print("Deactivating Robot")
                 break
@@ -70,6 +73,8 @@ def main(use_imu=False):
             state.quat_orientation = quat_orientation
 
             # Step the controller forward by dt
+            print(state)
+            sys.stdout.flush()
             controller.run(state, command)
 
             # Update the pwm widths going to the servos

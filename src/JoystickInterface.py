@@ -1,6 +1,7 @@
 import UDPComms
 import numpy as np
 import time
+import sys
 from src.State import BehaviorState, State
 from src.Command import Command
 from src.Utilities import deadband, clipped_first_order_filter
@@ -25,6 +26,7 @@ class JoystickInterface:
         try:
             msg = self.udp_handle.get()
             print(msg)
+            sys.stdout.flush()
             command = Command()
             
             ####### Handle discrete commands ########

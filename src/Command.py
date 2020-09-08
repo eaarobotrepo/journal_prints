@@ -16,3 +16,7 @@ class Command:
         self.hop_event = False
         self.trot_event = False
         self.activate_event = False
+        
+    def __str__(self):
+        return str(self.__class__) + ": " + str(self.__dict__)
+    

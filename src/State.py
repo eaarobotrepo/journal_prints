@@ -17,6 +17,9 @@ class State:
         self.joint_angles = np.zeros((3, 4))
 
         self.behavior_state = BehaviorState.REST
+    
+    def __str__(self):
+        return str(self.__class__) + ": " + str(self.__dict__)
 
 
 class BehaviorState(Enum):
